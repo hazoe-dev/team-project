@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.web.dacn.iterceptor.SiteAuthenticationInterceptor;
 
 
-@Configuration
+//@Configuration
 public class AuthenticationInterceptorConfig implements WebMvcConfigurer{
 
 	

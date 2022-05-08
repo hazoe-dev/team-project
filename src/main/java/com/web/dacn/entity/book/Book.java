@@ -1,6 +1,6 @@
 package com.web.dacn.entity.book;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Objects;
 import java.util.Set;
 
@@ -16,6 +16,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.web.dacn.entity.user.Author;
 import com.web.dacn.entity.user.User;
@@ -76,7 +78,7 @@ public class Book {
 			columnDefinition = "INTEGER DEFAULT 1")
 	private Integer status;
 
-	@Column(name = "mod_time", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date mod_time;
 
 	@ManyToOne(cascade = CascadeType.ALL, targetEntity = User.class)

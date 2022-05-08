@@ -1,6 +1,7 @@
 package com.web.dacn.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -119,6 +120,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 			+ " where b.id=?1 ", nativeQuery = true)
 	List<String> getAudioOfBook(int id);
 
+
 	// update table book, category, author, pdf
 //	@Modifying(clearAutomatically = true)
 //	
@@ -130,5 +132,9 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 //			@Param("vip") boolean vip,@Param("description")String description,@Param("slug")String slug,@Param("meta_title")String meta_description,
 //			@Param("status") int status);
 //	
+	
+	Page<Book> findDistinctBookByAudiosIsNotNull(Pageable pageable);
+
+	Optional<Book> findBookBySlug(String slug);
 
 }

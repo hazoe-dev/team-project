@@ -13,4 +13,6 @@ public interface OnlineRepository extends JpaRepository<Online, Long>{
 	@Query(value="select * from `online` where book_id=?1",nativeQuery = true)
 	List<Online> findByBookId(int bookId);
 
+	boolean existsByBookId(Long bookId);
+
 }
